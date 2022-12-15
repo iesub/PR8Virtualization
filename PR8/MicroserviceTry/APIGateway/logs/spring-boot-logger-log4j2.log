@@ -1,0 +1,53 @@
+2022-12-08 17:46:10,512 INFO o.s.b.StartupInfoLogger [restartedMain] Starting ApigatewayApplication using Java 18.0.2 on DESKTOP-LSLA89H with PID 3304 (E:\МИРЭА\4 курс\7 семестр\Виртуалки\Practice8\JavaWebGameEngineVKR\MicroserviceTry\APIGateway\target\classes started by Xenophan in E:\МИРЭА\4 курс\7 семестр\Виртуалки\Practice8\JavaWebGameEngineVKR\MicroserviceTry\APIGateway)
+2022-12-08 17:46:10,515 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-12-08 17:46:10,751 INFO o.s.c.c.s.GenericScope [restartedMain] BeanFactory id=0717a31d-07a5-3ed0-85d3-6d2a2d18b1da
+2022-12-08 17:46:10,762 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-12-08 17:46:10,764 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-12-08 17:46:10,765 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [restartedMain] Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-12-08 17:46:10,950 INFO o.s.c.g.r.RouteDefinitionRouteLocator [restartedMain] Loaded RoutePredicateFactory [After]
+2022-12-08 17:46:10,951 INFO o.s.c.g.r.RouteDefinitionRouteLocator [restartedMain] Loaded RoutePredicateFactory [Before]
+2022-12-08 17:46:10,952 INFO o.s.c.g.r.RouteDefinitionRouteLocator [restartedMain] Loaded RoutePredicateFactory [Between]
+2022-12-08 17:46:10,953 INFO o.s.c.g.r.RouteDefinitionRouteLocator [restartedMain] Loaded RoutePredicateFactory [Cookie]
+2022-12-08 17:46:10,954 INFO o.s.c.g.r.RouteDefinitionRouteLocator [restartedMain] Loaded RoutePredicateFactory [Header]
+2022-12-08 17:46:10,955 INFO o.s.c.g.r.RouteDefinitionRouteLocator [restartedMain] Loaded RoutePredicateFactory [Host]
+2022-12-08 17:46:10,956 INFO o.s.c.g.r.RouteDefinitionRouteLocator [restartedMain] Loaded RoutePredicateFactory [Method]
+2022-12-08 17:46:10,957 INFO o.s.c.g.r.RouteDefinitionRouteLocator [restartedMain] Loaded RoutePredicateFactory [Path]
+2022-12-08 17:46:10,958 INFO o.s.c.g.r.RouteDefinitionRouteLocator [restartedMain] Loaded RoutePredicateFactory [Query]
+2022-12-08 17:46:10,959 INFO o.s.c.g.r.RouteDefinitionRouteLocator [restartedMain] Loaded RoutePredicateFactory [ReadBody]
+2022-12-08 17:46:10,959 INFO o.s.c.g.r.RouteDefinitionRouteLocator [restartedMain] Loaded RoutePredicateFactory [RemoteAddr]
+2022-12-08 17:46:10,960 INFO o.s.c.g.r.RouteDefinitionRouteLocator [restartedMain] Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2022-12-08 17:46:10,961 INFO o.s.c.g.r.RouteDefinitionRouteLocator [restartedMain] Loaded RoutePredicateFactory [Weight]
+2022-12-08 17:46:10,962 INFO o.s.c.g.r.RouteDefinitionRouteLocator [restartedMain] Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2022-12-08 17:46:10,998 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2022-12-08 17:46:11,001 INFO o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration [restartedMain] Eureka HTTP Client uses RestTemplate.
+2022-12-08 17:46:11,141 WARN o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger [restartedMain] Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2022-12-08 17:46:11,158 INFO o.s.c.n.e.InstanceInfoFactory [restartedMain] Setting initial instance status as: STARTING
+2022-12-08 17:46:11,163 INFO c.n.d.DiscoveryClient [restartedMain] Initializing Eureka in region us-east-1
+2022-12-08 17:46:11,165 INFO c.n.d.s.r.a.ConfigClusterResolver [restartedMain] Resolving eureka endpoints via configuration
+2022-12-08 17:46:11,173 INFO c.n.d.DiscoveryClient [restartedMain] Disable delta property : false
+2022-12-08 17:46:11,174 INFO c.n.d.DiscoveryClient [restartedMain] Single vip registry refresh property : null
+2022-12-08 17:46:11,175 INFO c.n.d.DiscoveryClient [restartedMain] Force full registry fetch : false
+2022-12-08 17:46:11,176 INFO c.n.d.DiscoveryClient [restartedMain] Application is null : false
+2022-12-08 17:46:11,177 INFO c.n.d.DiscoveryClient [restartedMain] Registered Applications size is zero : true
+2022-12-08 17:46:11,179 INFO c.n.d.DiscoveryClient [restartedMain] Application version is -1: true
+2022-12-08 17:46:11,179 INFO c.n.d.DiscoveryClient [restartedMain] Getting all instance registry info from the eureka server
+2022-12-08 17:46:11,206 INFO c.n.d.DiscoveryClient [restartedMain] The response status is 200
+2022-12-08 17:46:11,210 INFO c.n.d.DiscoveryClient [restartedMain] Starting heartbeat executor: renew interval is: 10
+2022-12-08 17:46:11,214 INFO c.n.d.InstanceInfoReplicator [restartedMain] InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-12-08 17:46:11,216 INFO c.n.d.DiscoveryClient [restartedMain] Discovery Client initialized at timestamp 1670510771215 with initial instances count: 1
+2022-12-08 17:46:11,217 INFO o.s.c.n.e.s.EurekaServiceRegistry [restartedMain] Registering application API-GATEWAY with eureka with status UP
+2022-12-08 17:46:11,218 INFO c.n.d.DiscoveryClient$3 [restartedMain] Saw local status change event StatusChangeEvent [timestamp=1670510771218, current=UP, previous=STARTING]
+2022-12-08 17:46:11,218 INFO c.n.d.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_API-GATEWAY/host.docker.internal:api-gateway:20300: registering service...
+2022-12-08 17:46:11,229 INFO c.n.d.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_API-GATEWAY/host.docker.internal:api-gateway:20300 - registration status: 204
+2022-12-08 17:46:11,230 INFO o.s.b.w.e.n.NettyWebServer [restartedMain] Netty started on port 20300
+2022-12-08 17:46:11,231 INFO o.s.c.n.e.s.EurekaAutoServiceRegistration [restartedMain] Updating port to 20300
+2022-12-08 17:46:11,354 INFO o.s.b.StartupInfoLogger [restartedMain] Started ApigatewayApplication in 2.006 seconds (JVM running for 107.754)
+2022-12-08 17:46:11,362 INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2022-12-08 17:48:25,499 INFO o.s.c.n.e.s.EurekaServiceRegistry [SpringApplicationShutdownHook] Unregistering application API-GATEWAY with eureka with status DOWN
+2022-12-08 17:48:26,518 INFO c.n.d.DiscoveryClient$3 [SpringApplicationShutdownHook] Saw local status change event StatusChangeEvent [timestamp=1670510906518, current=DOWN, previous=UP]
+2022-12-08 17:48:26,519 INFO c.n.d.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_API-GATEWAY/host.docker.internal:api-gateway:20300: registering service...
+2022-12-08 17:48:26,529 INFO c.n.d.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_API-GATEWAY/host.docker.internal:api-gateway:20300 - registration status: 204
+2022-12-08 17:48:28,628 INFO c.n.d.DiscoveryClient [SpringApplicationShutdownHook] Shutting down DiscoveryClient ...
+2022-12-08 17:48:31,645 INFO c.n.d.DiscoveryClient [SpringApplicationShutdownHook] Unregistering ...
+2022-12-08 17:48:31,649 INFO c.n.d.DiscoveryClient [SpringApplicationShutdownHook] DiscoveryClient_API-GATEWAY/host.docker.internal:api-gateway:20300 - deregister  status: 200
+2022-12-08 17:48:31,654 INFO c.n.d.DiscoveryClient [SpringApplicationShutdownHook] Completed shut down of DiscoveryClient

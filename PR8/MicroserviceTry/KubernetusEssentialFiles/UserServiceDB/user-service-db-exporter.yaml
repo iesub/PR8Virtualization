@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service-db-exporter-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app:  user-service-db-exporter
+  template:
+    metadata:
+      labels:
+        app:  user-service-db-exporter
+    spec:
+      containers:
+        - name: exporter
+          image: prometheuscommunity/postgres-exporter
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: DATA_SOURCE_NAME
+              value: "postgresql://userservice:userservicepass@user-service-db-service:20205/postgres?sslmode=disable"
+          ports:
+            - containerPort: 9187
+          resources:
+            limits:
+              memory: "1Gi"
+              cpu: "1"

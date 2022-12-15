@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elastic-mongo-db-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app:  elastic-mongo-db
+  template:
+    metadata:
+      labels:
+        app:  elastic-mongo-db
+    spec:
+      containers:
+        - name: mongodb
+          image: mongo:5.0
+          imagePullPolicy: IfNotPresent
+          env:
+          - name: MONGO_INITDB_DATABASE
+            value: graylog
+          volumeMounts:
+            - mountPath: /data/db
+              name: mongodb
+          resources:
+            limits:
+              memory: "1Gi"
+              cpu: "1"
+      volumes:
+        - name: mongodb
+          persistentVolumeClaim:
+            claimName: elastic-mongo-db-pv-claim

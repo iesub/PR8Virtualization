@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: game-service-db-config
+  labels:
+    app: game-service-db
+data:
+  POSTGRES_USER: Server
+  POSTGRES_PASSWORD: ServerPassWitcher
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: game-service-db-config-maxcons
+  labels:
+    app: game-service-db
+data:
+  max_conns.sql: "ALTER SYSTEM SET max_connections = 500;"

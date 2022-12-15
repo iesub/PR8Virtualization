@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elastic-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app:  elastic
+  template:
+    metadata:
+      labels:
+        app:  elastic
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: elastic
+          image: elasticsearch:7.17.6
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - mountPath: /var/lib/elasticsearch/data
+              name: mongodb
+          env:
+          - name: ES_JAVA_OPTS
+            value: "-Xms1g -Xmx1g -Dlog4j2.formatMsgNoLookups=true"
+          - name: discovery.type
+            value: "single-node"
+          - name: bootstrap.memory_lock
+            value: "true"
+          - name: http.host
+            value: "0.0.0.0"
+          - name: action.auto_create_index
+            value: "false"
+          - name: xpack.security.enabled
+            value: "false"
+          resources:
+          limits:
+            memory: "2Gi"
+            cpu: "2"
+      volumes:
+        - name: mongodb
+          persistentVolumeClaim:
+            claimName: elastic-pv-claim

@@ -1,0 +1,24 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: game-engine-service-monitor
+spec:
+  selector:
+    matchLabels:
+      app: game-engine
+  endpoints:
+  - port: http-traffic
+    path: "/actuator/prometheus"
+
+---
+
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: user-db-service-monitor
+spec:
+  selector:
+    matchLabels:
+      app: user-service-db-exporter
+  endpoints:
+  - port: db-traffic

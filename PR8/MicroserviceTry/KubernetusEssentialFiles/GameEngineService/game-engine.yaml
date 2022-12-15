@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: game-engine
+  name: game-engine
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: game-engine
+  template:
+    metadata:
+      labels:
+        app: game-engine
+    spec:
+      restartPolicy: Always
+      containers:
+      - image: vkr-game-engine-service
+        imagePullPolicy: IfNotPresent
+        envFrom:
+            - configMapRef:
+                name: game-engine-config
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        ports:
+        - name: http-traffic
+          containerPort: 20500
+        name: game-engine
+        resources:
+          limits:
+            memory: "1Gi"
+            cpu: "1"
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 20500
+          failureThreshold: 3
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 20500
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        startupProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 20500
+          failureThreshold: 30
+          periodSeconds: 10

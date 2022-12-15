@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: graylog-service
+  labels:
+    app: graylog
+spec:
+  type: NodePort
+  ports:
+    - port: 20500
+      targetPort: 9000
+  selector:
+    app: graylog
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: graylog-service-input
+  labels:
+    app: graylog
+spec:
+  type: NodePort
+  ports:
+    - port: 12201
+      targetPort: 12201
+      protocol: UDP
+      name: gelf
+  selector:
+    app: graylog

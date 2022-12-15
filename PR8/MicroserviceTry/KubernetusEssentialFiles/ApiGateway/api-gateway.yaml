@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: api-gateway
+  name: api-gateway
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-gateway
+  template:
+    metadata:
+      labels:
+        app: api-gateway
+    spec:
+      restartPolicy: Always
+      containers:
+      - image: vkr-api-gateway
+        imagePullPolicy: IfNotPresent
+        envFrom:
+            - configMapRef:
+                name: api-gateway-config
+        name: api-gateway
+        resources:
+          limits:
+            memory: "1Gi"
+            cpu: "1"
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 20300
+          failureThreshold: 3
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 20300
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        startupProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 20300
+          failureThreshold: 30
+          periodSeconds: 10

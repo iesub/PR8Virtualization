@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: eureka-service
+  name: eureka-service
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eureka-service
+  template:
+    metadata:
+      labels:
+        app: eureka-service
+    spec:
+      restartPolicy: Always
+      containers:
+      - image: vkr-eureka-service
+        imagePullPolicy: IfNotPresent
+        envFrom:
+            - configMapRef:
+                name: eureka-service-config
+        name: eureka-service
+        resources:
+          limits:
+            memory: "1Gi"
+            cpu: "1"
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 20100
+          failureThreshold: 3
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 20100
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        startupProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 20100
+          failureThreshold: 30
+          periodSeconds: 10

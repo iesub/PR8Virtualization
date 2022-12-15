@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: game-engine-controller
+  name: game-engine-controller
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: game-engine-controller
+  template:
+    metadata:
+      labels:
+        app: game-engine-controller
+    spec:
+      serviceAccountName: game-service-controller-account
+      automountServiceAccountToken: true
+      restartPolicy: Always
+      containers:
+      - image: vkr-game-engine-controller-service
+        imagePullPolicy: IfNotPresent
+        envFrom:
+            - configMapRef:
+                name: game-engine-controller-config
+        name: game-engine-controller
+        resources:
+          limits:
+            memory: "1Gi"
+            cpu: "1"
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 20500
+          failureThreshold: 3
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 20500
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        startupProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 20500
+          failureThreshold: 30
+          periodSeconds: 10
